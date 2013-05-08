@@ -3,7 +3,8 @@ django-attachments
 ==================
 
 django-attachments is a generic set of template tags to attach any kind of
-files to models.
+files to models, which supports multiple-attachments upload without refreshing
+the page NOW.
 
 Installation:
 =============
@@ -171,6 +172,10 @@ Finally, create the Attachment object and save it, and close the file handle::
 
 Changelog:
 ==========
+v0.3.2 (2013-05-08):
+
+    * Extended project to support multiple-attachments upload without updating the page with
+      the help of jquery's pseudo ajax posting.
 
 v0.3.1 (2009-07-29):
 
