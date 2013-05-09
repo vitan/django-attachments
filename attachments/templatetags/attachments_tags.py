@@ -18,7 +18,6 @@ def attachment_form(context, obj):
         return {
             'form': AttachmentForm(),
             'form_url': add_url_for_obj(obj),
-            'next': context['request'].build_absolute_uri(),
         }
     else:
         return {
@@ -40,7 +39,6 @@ def attachment_delete_link(context, attachment):
        or (context['user'] == attachment.creator and \
            context['user'].has_perm('attachments.delete_attachment')):
         return {
-            'next': context['request'].build_absolute_uri(),
             'delete_url': reverse('delete_attachment', kwargs={'attachment_pk': attachment.pk})
         }
     return {'delete_url': None,}
