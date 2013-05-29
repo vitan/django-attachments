@@ -9,6 +9,9 @@ the page NOW.
 Installation:
 =============
 
+Basic:
+------
+
 1. Put ``attachments`` to your ``INSTALLED_APPS`` in your ``settings.py``
    within your django project.
 
@@ -27,8 +30,10 @@ Installation:
 3. Add ``(r'^attachments/', include('attachments.urls')),`` to your ``urls.py``.
 
 4. Add ``urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`` at the end of your ``urls.py``. Of course you must add::
+
    from django.conf import settings
    from django.conf.urls.static import static
+
 for successfully running.
 
 5. Don't forget to resync your database::
@@ -46,10 +51,14 @@ for successfully running.
 
    * For **deleting foreign attachments** (attachments by other users) grant
      the user the permission ``attachments.delete_foreign_attachments``.
-     
+
    This only works for the templatetags, the admin still allows anybody to add
    or delete attachments.
 
+Options For attachments no-fresh uploading:
+------------------------------------------
+
+1.
 
 Mind that you serve files!
 ==========================
