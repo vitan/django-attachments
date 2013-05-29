@@ -114,4 +114,5 @@ INSTALLED_APPS = (
 
     # Messages setup:
     'core',
+    'attachments',
 )
