@@ -58,7 +58,7 @@ for successfully running.
 Options For attachments no-fresh uploading:
 ------------------------------------------
 
-1.
+1. Copy files ``jquery-1.7.2.min.js``, ``jquery.iframe-post-form.js``, ``attachment-request.js`` to your project static dir from dir ``static/js``.
 
 Mind that you serve files!
 ==========================
