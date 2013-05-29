@@ -31,8 +31,8 @@ Basic:
 
 4. Add ``urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`` at the end of your ``urls.py``. Of course you must add::
 
-   from django.conf import settings
-   from django.conf.urls.static import static
+    from django.conf import settings
+    from django.conf.urls.static import static
 
 for successfully running.
 
