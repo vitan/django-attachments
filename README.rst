@@ -12,9 +12,7 @@ Installation:
 1. Put ``attachments`` to your ``INSTALLED_APPS`` in your ``settings.py``
    within your django project.
 
-2. Add ``(r'^attachments/', include('attachments.urls')),`` to your ``urls.py``.
-
-3. Add ``'django.core.context_processors.request'`` to your ``TEMPLATE_CONTEXT_PROCESSORS``
+2. Add ``'django.core.context_processors.request'`` to your ``TEMPLATE_CONTEXT_PROCESSORS``
    in your settings.py. If this setting does not exist, simply add the following
    snippet at the end of your settings.py::
 
@@ -26,11 +24,18 @@ Installation:
         'django.contrib.messages.context_processors.messages',
     )
 
-4. Don't forget to resync your database::
+3. Add ``(r'^attachments/', include('attachments.urls')),`` to your ``urls.py``.
+
+4. Add ``urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`` at the end of your ``urls.py``. Of course you must add::
+   from django.conf import settings
+   from django.conf.urls.static import static
+for successfully running.
+
+5. Don't forget to resync your database::
 
     ./manage.py syncdb
 
-5. Grant the user some permissons:
+6. Grant the user some permissons:
 
    * For **adding attachments** grant the user (or group) the permission
      ``attachments.add_attachments``.
