@@ -8,7 +8,7 @@ setup(
     author='Martin Mahner',
     author_email='martin@mahner.org',
     url='http://github.com/bartTC/django-attachments/tree/master',
-    packages=find_packages(),
+    packages=find_packages(exclude=('example*',)),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
