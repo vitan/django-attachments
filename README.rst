@@ -130,12 +130,18 @@ If you need attachments no-fresh uploading:
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.iframe-post-form.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/attachment-request.js"></script>
 
-9. 
+3. Call the jquery function ``attachment_post()``. Some work like this::
+
+    $(document).ready(function () {
+        ......
+        attachment_post();
+        ......
+    });
 
 **More detail** on child project ``example``.
 
 Quick Example:
-=============
+==============
 
 ::
 

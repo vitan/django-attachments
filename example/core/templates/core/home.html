@@ -1,6 +1,13 @@
 {% extends "core/base.html" %}
 {% load attachments_tags %}
 
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        attachment_post();
+    });
+</script>
+{% endblock %}
 {% block head_title %}Home{% endblock %}
 {% block content %}
     <h1>Messages:</h1>
