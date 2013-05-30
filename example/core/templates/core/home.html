@@ -1,17 +1,32 @@
 {% extends "core/base.html" %}
+{% load attachments_tags %}
 
 {% block head_title %}Home{% endblock %}
 {% block content %}
     <h1>Messages:</h1>
     <ul>
-        {% for message in messages %}
+        {% for report in reports %}
+        {% get_attachments_for report as "report_attachments" %}
             <li>
                 <div class="message">
-                    <p class="title">{{ message.title }}</p>
+                    <p class="title">{{ report.title }}</p>
 
-                    <p class="text">{{ message.text }}</p>
+                    <p class="text">{{ report.text }}</p>
                 </div>
             </li>
+            {% if report_attachments %}
+            <ul>
+                {% for attachment in report_attachments %}
+                <li>
+                <a href="{{ attachment.attachment_file.url }}">{{ attachment.filename }}</a>
+                {% attachment_delete_link attachment %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% attachment_form report %}
+
         {% endfor %}
     </ul>
 {% endblock %}
