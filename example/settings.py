@@ -3,7 +3,6 @@
 # These settings are pretty basic.
 # The only relevent settings are the defaults are:
 # - INSTALLED_APPS
-# - COMMENTS_APP
 #
 # And the following are configured to sane defaults:
 # - TEMPLATE_CONTEXT_PROCESSORS
@@ -54,12 +53,12 @@ USE_L10N = True
 USE_TZ = True
 
 # Paths, using autodetection
-PROJECT_DIR  = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 ROOT_URLCONF = 'example.urls'
@@ -99,7 +98,9 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR, 'static/'),
+)
 
 TEMPLATE_DIRS = ()
 
