@@ -55,10 +55,18 @@ for successfully running.
    This only works for the templatetags, the admin still allows anybody to add
    or delete attachments.
 
-Options For attachments **no-fresh** uploading:
+Options For attachments no-fresh uploading:
 ------------------------------------------
 
 1. Copy files ``jquery-1.7.2.min.js``, ``jquery.iframe-post-form.js``, ``attachment-request.js`` to your project static dir from ``static/js``.
+
+2. Insert the following 3 lines into ``templates/base.html``::
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.iframe-post-form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/attachment-request.js"></script>
+
+3. 
 
 Mind that you serve files!
 ==========================
