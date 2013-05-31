@@ -1,2 +1,6 @@
 *.pyc
 *.db
+build/*
+dist/*
+django_attachments.egg-info/*
+example/media/*
