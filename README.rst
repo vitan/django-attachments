@@ -119,7 +119,7 @@ for your model objects in your frontend.
    give n attachment's creator is the current logged in user or the user has the 
    ``delete_foreign_attachments`` permission.
 
-If you need attachments no-fresh uploading:
+If you need attachments no-refresh upload:
 -------------------------------------------
 
 1. Copy files ``jquery-1.7.2.min.js``, ``jquery.iframe-post-form.js``, ``attachment-request.js`` to your project static dir from ``static/js``.
@@ -137,6 +137,13 @@ If you need attachments no-fresh uploading:
         attachment_init();
         ......
     });
+
+**About no-refresh upload**: 
+As we all know, file upload is not possible through AJAX. Here the project can upload file , without refreshing page by using 3rd jquery lib `jquery.iframe-post-form.js
+<http://www.jainaewen.com/files/javascript/jquery/iframe-post-form.html>`_.
+
+You can check further detail  `here
+<http://archive.plugins.jquery.com/project/iframe-post-form>`_.
 
 **More detail** on child project ``example``.
 
