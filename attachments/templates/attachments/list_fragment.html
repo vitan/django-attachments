@@ -1,0 +1,6 @@
+{% load attachments_tags %}
+
+<li>
+    <a href="{{ attachment.attachment_file.url }}">{{ attachment.filename }}</a>
+    {% attachment_delete_link attachment %}
+</li>

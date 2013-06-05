@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.db.models.loading import get_model
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext, ugettext_lazy as _
+from django.template import loader
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
 
@@ -21,7 +22,7 @@ def add_url_for_obj(obj):
 @require_POST
 @login_required
 def add_attachment(request, app_label, module_name, pk,
-                   template_name='attachments/add.html', extra_context={}):
+                   template_name='attachments/list_fragment.html', extra_context={}):
 
     response = AjaxResponseMixin()
     model = get_model(app_label, module_name)
@@ -32,9 +33,13 @@ def add_attachment(request, app_label, module_name, pk,
     form = AttachmentForm(request.POST, request.FILES)
 
     if form.is_valid():
-        form.save(request, obj)
-        context = {'success': ugettext('Your attachment was uploaded.')}
+        attachment_obj = form.save(request, obj)
+        template = loader.get_template(template_name)
+        request_context = RequestContext(request, {'attachment': attachment_obj })
+        data = template.render(request_context)
+        context = { 'success': data }
         return response.ajax_response(**context)
+
     else:
         response.update_errors({'fail': ugettext('attachment failed.')})
         return response.ajax_response()

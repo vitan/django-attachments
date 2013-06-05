@@ -22,7 +22,7 @@
                 </div>
             </li>
             {% if report_attachments %}
-            <ul>
+            <ul class="attachment-list">
                 {% for attachment in report_attachments %}
                 <li>
                 <a href="{{ attachment.attachment_file.url }}">{{ attachment.filename }}</a>
